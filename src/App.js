@@ -40,7 +40,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -63,6 +64,8 @@ class App extends Component {
           }
         </div> 
       )
+
+      style.backgroundColor = 'red';
     }
 
     return (
@@ -79,7 +82,9 @@ class App extends Component {
 export default App;
 
 
-
+// Setting styles dynamically
+// Inline styling - disadvantages like media queries, pseudo-selectors
+// Button color green on showing list, color red on hiding list, styling dynamically.
 
 
 
