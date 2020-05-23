@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import './App.css';
 import Person from './Person/Person';
 
@@ -86,12 +86,14 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <h1>Hi, from React app</h1>
-        <p className={classes.join(' ')}>This is really working</p>
-        <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
-        { persons }
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1>Hi, from React app</h1>
+          <p className={classes.join(' ')}>This is really working</p>
+          <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
+          { persons }
+        </div>
+      </StyleRoot>
     );
   }
 }
@@ -100,9 +102,5 @@ export default Radium(App);
 
 
 
-
-// Adding and using Radium
-// Helps to use pseudo-selectors & media queries with inline styles. Can be used for both class & functional components.
-// export default Radium(App);   App is wrapped in Radium()(higher order component).
 
 
