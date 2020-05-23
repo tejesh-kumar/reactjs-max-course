@@ -13,16 +13,6 @@ class App extends Component {
     showPersons: false
   }
 
-  // switchNameHandler = (newName) => {
-  //   this.setState({
-  //       persons: [
-  //         { name: newName, age: 25 },
-  //         { name: "Nitesh", age: 23 },
-  //         { name: "Madhu", age: 27 }
-  //       ]
-  //   })
-  // }
-
   nameChangedHandler = (event) => {
     this.setState({
       persons: [
@@ -34,7 +24,7 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons;
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     // console.log(person);
 
@@ -84,6 +74,7 @@ class App extends Component {
 }
 
 export default App;
+
 
 
 
