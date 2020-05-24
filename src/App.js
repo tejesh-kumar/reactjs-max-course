@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import classes from './App.css';
 import Person from './Person/Person';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
   state = {
@@ -49,12 +50,14 @@ class App extends Component {
         <div>
           {
             this.state.persons.map((person, index) => {
-              return <Person 
-                id = {index} name={person.name} 
-                age = {person.age} 
-                click = {() => { this.deletePersonHandler(index)}} 
-                changed = {(event) => this.nameChangedHandler(event, person.id)}
-                key = {person.id} />
+              return <ErrorBoundary key = {person.id}>
+                  <Person 
+                  id = {index} name={person.name} 
+                  age = {person.age} 
+                  click = {() => { this.deletePersonHandler(index)}} 
+                  changed = {(event) => this.nameChangedHandler(event, person.id)}
+                  />
+                </ErrorBoundary>
             })
           }
         </div> 
@@ -85,5 +88,5 @@ class App extends Component {
 export default App;
 
 
-
-
+// Error Boundary
+// Use Error boundaries for part of code for which you think will fail at run time(fetching data from external resource).
