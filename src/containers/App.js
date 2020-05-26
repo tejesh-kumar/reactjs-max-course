@@ -5,7 +5,22 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state = {
+  constructor(props) {
+    super(props);                  // Executes the constructor of extending 'Component'
+    console.log('[App.js] constructor');
+
+    // this.state = {
+    //   persons: [
+    //     { id: "dfas1", name: "Tejesh", age: 25 },
+    //     { id: "ghfdsd2", name: "Nitesh", age: 23 },
+    //     { id: "ddewd3", name: "Madhu", age: 26 }
+    //   ],
+    //   otherState: 'some other value',
+    //   showPersons: false
+    // }
+  }
+
+  state = {                 // More modern syntax in es6 where the state object is transformed & initialized inherantly behind the scenes, as above(this.state) by running constructor function by es6.
     persons: [
       { id: "dfas1", name: "Tejesh", age: 25 },
       { id: "ghfdsd2", name: "Nitesh", age: 23 },
@@ -13,6 +28,15 @@ class App extends Component {
     ],
     otherState: 'some other value',
     showPersons: false
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;                                     // return updated state
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
   }
 
   nameChangedHandler = (event, id) => {
@@ -41,6 +65,8 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render');
+
     let persons = null;
 
     if(this.state.showPersons) {
