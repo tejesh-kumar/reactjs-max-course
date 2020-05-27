@@ -90,7 +90,7 @@ class App extends Component {
         }}>Remove Cockpit</button>
 
         { this.state.showCockpit === true ?
-        <Cockpit title={this.props.appTitle} showPersons={this.state.showPersons} persons={this.state.persons} clicked={this.togglePersonsHandler}/> : null}
+        <Cockpit title={this.props.appTitle} showPersons={this.state.showPersons} personsLength={this.state.persons.length} clicked={this.togglePersonsHandler}/> : null}
         { persons }
       </div>
     );
@@ -98,6 +98,7 @@ class App extends Component {
 }
 
 export default App;
+
 
 
 
