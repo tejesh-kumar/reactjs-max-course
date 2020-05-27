@@ -11,7 +11,19 @@ const cockpit = (props) => {
         setTimeout(() => {
             alert('Saved Data to cloud');
         }, 1000);
-    }, []);
+
+        return () => {
+            console.log('[Cockpit.js] cleanup work in useEffect');
+        }
+    }, []);    // Very useful if cleanup work is to be done before component is unmounted.
+
+    useEffect(() => {
+        console.log('[Cockpit.js] cleanup work in 2nd useEffect');
+        
+        return () => {
+            console.log('[Cockpit.js] cleanup work in 2nd useEffect');
+        }
+    });       // Very useful if some operation that should be cancelled whenever the component re-renders.
 
     let assignedClasses = [];
     let btnClass = '';
